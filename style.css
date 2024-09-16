@@ -1,5 +1,5 @@
 body{
-    background-color: white;
+    background-color: black;
 }
 .btnP{
     text-align: center !important;
@@ -22,12 +22,14 @@ body{
     width: 20% ;
 }
 #feedContainer{
-    position: absolute;
+    position: relative;
     display: flex;
     flex-flow: column;
+    overflow: scroll;
+    overflow-x: hidden;
     left: 30%;
     margin-top: 1%;
     width: 40%;
-    height: 80%;
-    border: 5px solid black;
+    height: 900px;
+    border: 1px solid gray;
 }
