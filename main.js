@@ -19,10 +19,10 @@ class Profile {
         this.profileImg = profileImg;
     }
 }
-
+let NewUser = new Profile("Felix", "Flikzerman", "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png");
 function addTweet(){
   
-  let NewUser = new Profile("Felix", "Flikzerman", "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png");
+  
   let parent = document.getElementById("feedContainer");
   tweet = document.createElement("div");
   let tweetTextId = document.getElementById("tweetText");
@@ -121,8 +121,8 @@ theModal.id = "theModal";
  theModal.style.width = "39.5%";
  theModal.style.height = "30%";
  theModal.style.overflow = "auto";
- theModal.style.backgroundColor = "white";
- theModal.style.border = "5px solid white"
+ theModal.style.backgroundColor = "gray";
+ theModal.style.opacity = "0.9"
  parent.appendChild(theModal);
  backdrop.addEventListener('click', function(event) {
   const clickModal = backdrop.contains(event.target);
