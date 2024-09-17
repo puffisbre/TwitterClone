@@ -1,6 +1,13 @@
 let positionNmb;
+let parent;
+let tweet;
+let storageTweet;
+let btnId;
 window.onload = function(){
     positionNmb = 0;
+    btnId = 0;
+    parent = document.getElementById("feedContainer");
+    
 }
 
 class Profile {
@@ -12,14 +19,19 @@ class Profile {
 }
 
 function addTweet(){
+  
   let NewUser = new Profile("Felix", "Flikzerman", "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png");
   let parent = document.getElementById("feedContainer");
+  tweet = document.createElement("div");
   let tweetTextId = document.getElementById("tweetText");
   let tweetContent = document.createElement("p");
   let name = document.createElement("h2");
   let username = document.createElement("h4");
   let profileImg = document.createElement("img");
-  let tweet = document.createElement("div");
+  let removeBtn = document.createElement("button");
+  let editBtn = document.createElement("button");
+  
+  
   //Styling the tweet
   tweet.style.width = "100%";
   tweet.style.height = "20%";
@@ -45,6 +57,34 @@ function addTweet(){
   tweetContent.style.top = "15%";
   tweetContent.style.fontSize = "20px"
   tweetContent.style.color = "white"
+
+
+  //Edit button management
+  editBtn.innerHTML = "Edit";
+  editBtn.name = "editBtn";
+  editBtn.style.position = "absolute";
+  editBtn.style.left = "92%"
+  editBtn.style.top = "20%"
+  editBtn.style.height = "20px"
+  editBtn.style.weight = "10px"
+  editBtn.style.backgroundColor = "green";
+  editBtn.addEventListener("click", function() {
+    editTweet(this);
+});
+  //Remove button management
+  btnId++;
+  removeBtn.id = btnId.toString();
+  removeBtn.innerHTML = "Delete";
+  removeBtn.name = "removeBtn";
+  removeBtn.style.position = "absolute";
+  removeBtn.style.left = "92%"
+  removeBtn.style.top = "5%"
+  removeBtn.style.height = "20px"
+  removeBtn.style.weight = "10px"
+  removeBtn.style.backgroundColor = "red";
+  removeBtn.addEventListener("click", function() {
+    removeTweet(this);
+});
   
   //Position of tweet so newest tweet is on top
   positionNmb--;
@@ -54,11 +94,23 @@ function addTweet(){
   username.innerHTML += `${"@"+NewUser.username}`;
   profileImg.src = NewUser.profileImg;
   //Append content to tweet and then appending to parent container
+  tweet.id = positionNmb.toString();
   tweet.appendChild(profileImg);
   tweet.appendChild(name);
   tweet.appendChild(username);
   tweet.appendChild(tweetContent);
+  tweet.appendChild(removeBtn);
+  tweet.appendChild(editBtn);
   parent.appendChild(tweet);
   //Clears input field when tweeted
   tweetTextId.value = "";
+}
+
+function editTweet(e){
+  let parentTweet = e.parentNode;
+  
+}
+
+function removeTweet(t){
+    t.parentNode.remove();
 }
