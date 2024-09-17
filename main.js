@@ -3,12 +3,14 @@ let parent;
 let tweet;
 let storageTweet;
 let btnId;
+let theModal;
 window.onload = function(){
     positionNmb = 0;
     btnId = 0;
-    parent = document.getElementById("feedContainer");
-    
+    parent = document.getElementById("feedContainer"); 
 }
+
+
 
 class Profile {
     constructor(name, username, profileImg){
@@ -69,7 +71,7 @@ function addTweet(){
   editBtn.style.weight = "10px"
   editBtn.style.backgroundColor = "green";
   editBtn.addEventListener("click", function() {
-    editTweet(this);
+    editTweet();
 });
   //Remove button management
   btnId++;
@@ -106,9 +108,29 @@ function addTweet(){
   tweetTextId.value = "";
 }
 
-function editTweet(e){
-  let parentTweet = e.parentNode;
-  
+function editTweet(){
+let backdrop = document.getElementById("bdrop");
+backdrop.style.display = "block";
+theModal = document.createElement("div");
+theModal.id = "theModal";
+ theModal.style.display = "block";
+ theModal.style.position = "fixed";
+ theModal.style.zIndex = "1";
+ theModal.style.left = "30%";
+ theModal.style.top = "4%";
+ theModal.style.width = "39.5%";
+ theModal.style.height = "30%";
+ theModal.style.overflow = "auto";
+ theModal.style.backgroundColor = "white";
+ theModal.style.border = "5px solid white"
+ parent.appendChild(theModal);
+ backdrop.addEventListener('click', function(event) {
+  const clickModal = backdrop.contains(event.target);
+  if(clickModal){
+    theModal.style.display = "none";
+    backdrop.style.display = "none";
+  }
+});
 }
 
 function removeTweet(t){
