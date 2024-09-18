@@ -21,6 +21,17 @@ body{
     opacity: 0.5;
     background-color: black;
 }
+.menuContainer{
+    position: fixed;
+    margin-left: 20%;
+}
+
+.menuContainer ul li{
+    font-size: 25px;
+    color: white;
+    margin-top: 25px;
+    list-style: none;
+}
 .yourTweet{
 display: block;
 position: relative;
@@ -35,7 +46,7 @@ height: 100px;
     font-size: 25px;
     width: 10%;
     height: 45px;
-    background-color: #00cbff;
+    background-color: rgb(29, 155, 240);
     color: white;
     border-radius: 30px;
     border: none;
