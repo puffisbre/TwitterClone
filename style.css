@@ -42,6 +42,14 @@ height: 100px;
     font-weight: bold !important;
 }
 
+#addTweet:disabled,
+#addTweet[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+
 #tweetText{
     float: left;
     font-size: 34px;
@@ -56,9 +64,11 @@ textarea:focus, input:focus{
 }
 #feedContainer{
     position: absolute;
-    display: flex;
+    display:flex;
+    flex: none;
     flex-flow: column;
-    overflow: scroll;
+    min-height: 0;
+    overflow-y: scroll;
     overflow-x: hidden;
     left: 30%;
     top: 14%;

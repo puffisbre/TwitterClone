@@ -11,7 +11,21 @@ let activeParentTweet;
 window.onload = function(){
     positionNmb = 0;
     btnId = 0;
-    parent = document.getElementById("feedContainer"); 
+    parent = document.getElementById("feedContainer");
+    checkInputField();
+}
+
+function checkInputField(){
+  let inputValue = document.getElementById("tweetText");
+  setInterval(function () {
+    if(inputValue.value == ""){
+      document.getElementById("addTweet").disabled = true;
+    }
+  }, 10);
+}
+
+function activateInputfield(){
+  document.getElementById("addTweet").disabled = false;
 }
 
 class Profile {
@@ -36,13 +50,13 @@ function addTweet(){
   let editBtn = document.createElement("button");
   //#endregion
   
-  
   //#region Styling the tweet
   tweet.style.width = "100%";
   tweet.style.height = "20%";
   tweet.style.border = "3px solid gray";
   tweet.style.position = "relative";
   tweet.style.display = "flex";
+  tweet.style.flexShrink = "0";
   tweet.style.order = positionNmb.toString();
   tweet.style.overflow = "scroll";
   tweet.style.overflowX = "hidden";
@@ -75,11 +89,14 @@ function addTweet(){
   editBtn.innerHTML = "Edit";
   editBtn.name = "editBtn";
   editBtn.style.position = "absolute";
-  editBtn.style.left = "92%"
-  editBtn.style.top = "20%"
+  editBtn.style.left = "85%"
+  editBtn.style.top = "80%"
   editBtn.style.height = "20px"
-  editBtn.style.weight = "10px"
+  editBtn.style.width = "50px"
   editBtn.style.backgroundColor = "green";
+  editBtn.style.border = "none";
+  editBtn.style.borderRadius = "30px"
+  editBtn.style.color = "white"
   editBtn.addEventListener("click", function() {
     editTweet(this);
 });
@@ -92,10 +109,13 @@ function addTweet(){
   removeBtn.name = "removeBtn";
   removeBtn.style.position = "absolute";
   removeBtn.style.left = "92%"
-  removeBtn.style.top = "5%"
+  removeBtn.style.top = "80%"
   removeBtn.style.height = "20px"
-  removeBtn.style.weight = "10px"
+  removeBtn.style.width = "50px"
   removeBtn.style.backgroundColor = "red";
+  removeBtn.style.border = "none";
+  removeBtn.style.borderRadius = "30px"
+  removeBtn.style.color = "white"
   removeBtn.addEventListener("click", function() {
     removeTweet(this);
 });
@@ -146,36 +166,53 @@ theModal = document.createElement("div");
 activeParentTweet = para.parentNode;
 //#endregion
 
+//#region Style img
+profileImg.style.height = "100px";
+profileImg.style.width = "100px";
+profileImg.style.borderRadius = "50px";
+profileImg.style.marginLeft = "13%"
+//#endregion
+
 //#region Modal style
 theModal.id = "activeModal";
  theModal.style.display = "flex";
+ theModal.style.flexDirection = "column";
+ theModal.style.justifyContent = "center";
  theModal.style.position = "fixed";
  theModal.style.zIndex = "1";
  theModal.style.left = "30%";
  theModal.style.top = "4%";
  theModal.style.width = "40%";
- theModal.style.height = "30%";
+ theModal.style.height = "20%";
  theModal.style.overflow = "auto";
  theModal.style.backgroundColor = "white";
- theModal.style.borderRadius = "25px"
+ theModal.style.borderRadius = "25px";
  //#endregion
 
  //#region Input style
- editContent.style.width = "420px"
- editContent.style.height = "95%"
- editContent.style.marginTop = "1%"
- editContent.style.fontSize = "25px"
+ editContent.style.position = "absolute";
+ editContent.style.top = "-105%";
+ editContent.style.left = "27%";
+ editContent.style.width = "420px";
+ editContent.style.height = "25%";
+ editContent.style.marginTop = "35%";
+ editContent.style.fontSize = "25px";
+ editContent.style.textAlign = "center";
+ editContent.style.borderRadius = "30px"
+ editContent.value = activeParentTweet.childNodes[3].innerHTML;
  //#endregion
  
  //#region CompleteButton style
  completeBtn.innerHTML = "Save";
  completeBtn.name = "completeBtn";
  completeBtn.style.position = "absolute";
- completeBtn.style.left = "93%"
- completeBtn.style.bottom = "1%"
- completeBtn.style.height = "20px"
- completeBtn.style.width = "45px"
- completeBtn.style.borderRadius = "25px"
+ completeBtn.style.left = "82%";
+ completeBtn.style.fontSize = "15px";
+ completeBtn.style.color = "white";
+ completeBtn.style.bottom = "39%";
+ completeBtn.style.height = "40px";
+ completeBtn.style.width = "65px";
+ completeBtn.style.borderRadius = "25px";
  completeBtn.style.backgroundColor = "green";
  completeBtn.addEventListener("click", function() {
    completeEdit(this);
