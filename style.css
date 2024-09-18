@@ -1,5 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
 body{
     background-color: black;
+    font-family: "Roboto", sans-serif;
+    
 }
 .btnP{
     text-align: center !important;
@@ -13,31 +21,47 @@ body{
     opacity: 0.5;
     background-color: black;
 }
+.yourTweet{
+display: block;
+position: relative;
+left: 30%;
+width: 50%;
+height: 100px;
+}
 #addTweet{
-    position: relative;
-    display: flex;
-    font-size: 34px;
-    left: 61%;
-    width: 100px;
-    height: 50px;
+    position: absolute;
+    left: 70%;
+    top: 85%;
+    font-size: 25px;
+    width: 10%;
+    height: 45px;
+    background-color: #00cbff;
+    color: white;
+    border-radius: 30px;
+    border: none;
+    font-weight: bold !important;
 }
 
 #tweetText{
-    position: absolute;
-    display: flex;
+    float: left;
     font-size: 34px;
-    left: 40%;
-    height: 50px;
-    width: 20% ;
+    height: 130px;
+    width: 80% ;
+    background-color: black;
+    color: white;
+}
+
+textarea:focus, input:focus{
+    outline: none;
 }
 #feedContainer{
-    position: relative;
+    position: absolute;
     display: flex;
     flex-flow: column;
     overflow: scroll;
     overflow-x: hidden;
     left: 30%;
-    margin-top: 1%;
+    top: 14%;
     width: 40%;
     height: 900px;
     border: 1px solid gray;
