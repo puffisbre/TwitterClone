@@ -416,9 +416,8 @@ function addTweet(){
   //#region Edit button management
   editBtn.innerHTML = "Edit";
   editBtn.name = "editBtn";
-  editBtn.style.position = "absolute";
-  editBtn.style.left = "85%"
-  editBtn.style.top = "80%"
+  editBtn.style.marginLeft = "-15%"
+  editBtn.style.marginTop = "20%"
   editBtn.style.height = "20px"
   editBtn.style.width = "50px"
   editBtn.style.backgroundColor = "green";
@@ -435,9 +434,8 @@ function addTweet(){
   removeBtn.id = btnId.toString();
   removeBtn.innerHTML = "Delete";
   removeBtn.name = "removeBtn";
-  removeBtn.style.position = "absolute";
-  removeBtn.style.left = "92%"
-  removeBtn.style.top = "81%"
+  removeBtn.style.marginLeft = "68%";
+  removeBtn.style.marginTop = "20%";
   removeBtn.style.height = "20px"
   removeBtn.style.width = "50px"
   removeBtn.style.backgroundColor = "red";
@@ -494,9 +492,11 @@ theModal = document.createElement("div");
 
 //#region When pushing the edit button, i set the variable "activeParentTweet" to this buttons parent.
 activeParentTweet = para.parentNode;
+
 //#endregion
 
 //#region Style img
+let sameImg = activeParentTweet.childNodes[0];
 profileImg.style.height = "100px";
 profileImg.style.width = "100px";
 profileImg.style.borderRadius = "50px";
@@ -508,15 +508,15 @@ theModal.id = "activeModal";
  theModal.style.display = "flex";
  theModal.style.flexDirection = "column";
  theModal.style.justifyContent = "center";
- theModal.style.position = "fixed";
+ theModal.style.position = "fixed"
  theModal.style.zIndex = "1";
  theModal.style.left = "30%";
  theModal.style.top = "4%";
  theModal.style.width = "40%";
  theModal.style.height = "20%";
- theModal.style.overflow = "auto";
  theModal.style.backgroundColor = "white";
  theModal.style.borderRadius = "25px";
+ theModal.style.overflow = "hidden";
  //#endregion
 
  //#region Input style
@@ -552,7 +552,7 @@ theModal.id = "activeModal";
 //#endregion
  
 //#region Content in modal and appending children
- profileImg.src = NewUser.profileImg;
+ profileImg.src = sameImg.src;
  //editContent.value = c.innerHTML;
  parentForm.appendChild(editContent);
  theModal.appendChild(completeBtn);

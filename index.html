@@ -24,8 +24,12 @@
             <li>Verified Orgs</li>
             <li>Profile</li>
             <li>More</li>
-            <li><button style="background-color: rgb(29, 155, 240); width: 180px; height: 40px; border: none; border-radius: 30px; color: white; font-size: 15px; font-weight: bold;">Post</button></li>
+            <li class="menuContainerBtn"><button style="background-color: rgb(29, 155, 240); width: 180px; height: 40px; border: none; border-radius: 30px; color: white; font-size: 15px; font-weight: bold;">Post</button></li>
         </ul>
+    </div>
+    <div class="miniHeader">
+        <div style="margin-left: 220px;"><span class="focusHere">For you</span></div>
+        <div style="margin-right: 220px;">Following</div>
     </div>
     <div class="yourTweet">
         <form>
@@ -34,5 +38,36 @@
         <button onclick="addTweet()" id="addTweet">Post</button>
     </div>
     <div id="feedContainer"></div>
+    <div class="rightSideMenu">
+        <div class="searchForm">
+            <form>
+                <input type="text" name="searchbar" placeholder="Search" autocomplete="off" class="searchBar">
+            </form>
+        </div>
+        <div class="subscribeOptions">
+            <h2>Subscribe to Premium</h2>
+            <br />
+            <p>Subscribe to unlock new features and if eligible, receive a share of ads revenue.</p>
+            <button style="background-color: rgb(29, 155, 240); width: 110px; height: 40px; border: none; border-radius: 30px; color: white; font-size: 15px; font-weight: bold; margin-top: 5%;">Subscribe</button>
+        </div>
+        <div class="whoToFollow">
+           <ul>
+            <li style="margin-top: 0%;"><h3>Who to follow</h3></li>
+            <li>#Moder Theresa</li>
+            <li>#Top 10 life hacks</li>
+            <li>#Felix</li>
+           </ul>
+        </div>
+        <div class="trends">
+            <ul>
+                <li style="margin-top: 0%;"><h3>Sweden Trending</h3></li>
+                <li>#Valet</li>
+                <li>#Politik</li>
+                <li>#Rånet</li>
+                <li>#BAJEN</li>
+                <li>#Trump</li>
+               </ul>
+        </div>
+    </div>
 </body>
 </html>
